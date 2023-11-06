@@ -26,13 +26,13 @@ export function handleApplicationErrors(
     });
   }
 
-  if (err.name === 'InvalidDataError' || err.name === 'InvalidCepError' || err.name === 'EnrollmentNotFound') {
+  if (err.name === 'InvalidDataError' || err.name === 'InvalidCepError') {
     return res.status(httpStatus.BAD_REQUEST).send({
       message: err.message,
     });
   }
 
-  if (err.name === 'NotFoundError') {
+  if (err.name === 'NotFoundError' || err.name === 'EnrollmentNotFound') {
     return res.status(httpStatus.NOT_FOUND).send({
       message: err.message,
     });
