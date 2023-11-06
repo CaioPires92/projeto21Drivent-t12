@@ -15,7 +15,7 @@ export type CEP = {
   cep: string;
 };
 
-export type AdressEnrollment = {
+export type AddressEnrollment = {
   logradouro: string;
   complemento: string;
   bairro: string;

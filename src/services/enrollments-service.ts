@@ -3,7 +3,7 @@ import { request } from '@/utils/request';
 import { enrollmentWithAddressNotFoundError, invalidCepError, notFoundError } from '@/errors';
 import { addressRepository, CreateAddressParams, enrollmentRepository, CreateEnrollmentParams } from '@/repositories';
 import { exclude } from '@/utils/prisma-utils';
-import { AdressEnrollment, ViaCepError } from '@/protocols';
+import { AddressEnrollment, ViaCepError } from '@/protocols';
 
 async function getAddressFromCEP(cep: string) {
   const result = await request.get(`${process.env.VIA_CEP_API}/${cep}/json/`);
@@ -14,7 +14,7 @@ async function getAddressFromCEP(cep: string) {
     throw invalidCepError();
   }
 
-  const address: AdressEnrollment = { logradouro, complemento, bairro, cidade: localidade, uf };
+  const address: AddressEnrollment = { logradouro, complemento, bairro, cidade: localidade, uf };
 
   return address;
 }
