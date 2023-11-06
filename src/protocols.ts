@@ -10,3 +10,19 @@ export type RequestError = {
   name: string;
   message: string;
 };
+
+export type CEP = {
+  cep: string;
+};
+
+export type AdressEnrollment = {
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+};
+
+export type ViaCepError = {
+  error: boolean;
+};
