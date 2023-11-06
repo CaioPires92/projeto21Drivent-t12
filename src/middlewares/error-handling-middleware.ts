@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import httpStatus from 'http-status';
 import { ApplicationError, RequestError } from '@/protocols';
-import { invalidCepError } from '@/errors/invalid-cep-error';
 
 export function handleApplicationErrors(
   err: RequestError | ApplicationError | Error,
@@ -27,7 +26,7 @@ export function handleApplicationErrors(
     });
   }
 
-  if (err.name === 'InvalidDataError' || err.name === 'invalidCepError') {
+  if (err.name === 'InvalidDataError' || err.name === 'InvalidCepError') {
     return res.status(httpStatus.BAD_REQUEST).send({
       message: err.message,
     });

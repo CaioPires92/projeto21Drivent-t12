@@ -24,5 +24,5 @@ export type AdressEnrollment = {
 };
 
 export type ViaCepError = {
-  error: boolean;
+  erro: boolean;
 };
